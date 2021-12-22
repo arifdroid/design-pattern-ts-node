@@ -38,3 +38,29 @@ const makeArr_3 = <T>(x: T) => {
 }
 
 const array_2 = makeArr_3('3') // makeArr_3(3)
+
+// multiple generic 
+
+const makeArr_4 = <T, Y>(x: T, y: Y) => {
+    return [x, y]
+}
+
+const array_3 = makeArr_4(1, '2');
+
+//classic function
+
+function makeArr_4_copy<T, Y>(x: T, y: Y): [T, Y] {
+
+    return [x, y]
+}
+
+function makeArr_5_copy<T, Y = any>(x: T, y: Y): [T, Y] {
+
+    return [x, y]
+}
+
+const array_4 = makeArr_4_copy(1, '2')
+
+const array_5 = makeArr_4_copy<string, null | number>('1', null)
+
+const array_6 = makeArr_5_copy<string, null>('1', null)
